@@ -5,7 +5,6 @@
 	.label{
 		font-size: 40px;background-color:mediumpurple;
 	}
-
 	.image{
 		width: 350px;
 	}
@@ -53,22 +52,35 @@ margin-right: 0px;
 margin-bottom: 0px;
 margin-left: 0px;
 }
+
 #container{
-height:2000px;
 margin-top:0px;
 background: -webkit-linear-gradient(skyblue,mediumpurple);
 background: -o-linear-gradient(skyblue,mediumpurple);
 background: -moz-linear-gradient(skyblue,mediumpurple);
 background: linear-gradient(skyblue,mediumpurple);
+
 }
 </style>
 
 <head>
 	<meta charset="utf-8">
+	
 	<title>Myweb</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script>
+
+$(document).ready(function(){
+    $("button").click(function(){
+        $("img").hide();
+    });
+});
+</script>
 	</head>
-<body>
-<div id="container">
+
+<body id="container">
+<button>hi</button>
 	<div style="text-align:center;font-size: 70px;background-color:lightblue;font-family:fantasy;color:blue">M y w e b s i t e
 	</div>
 
