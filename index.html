@@ -1,21 +1,22 @@
 <!Doctype html>
-<html>
-
+<html style="width:100%">
 <style>
 	.label{
-		font-size: 40px;background-color:mediumpurple;
+		font-size: 35px;background-color:mediumpurple;
+		width:15%
 	}
 	.image{
-		width: 350px;
+		width: 370px;
 	}
 	.image-border{
 		 border-color: blue;
     	 border-width: 10px;
    		 border-style: double;
    		 border-radius: 10%;
+   		 margin: 30px 80px 60px 80px;
 	}
 	.space{
-		margin: 60px 80px 60px 80px;
+		margin: 0px 80px 60px 80px;
 	}
 	.title-set{
 		font-weight:bold;
@@ -40,7 +41,15 @@
     	border-collapse: collapse;
     	border: 3px  solid purple;
 	}
-	
+	.button-set1{
+		margin: 0px 0px 0px 190px;
+	}
+	.button-set2{
+		 color:blue;
+		 border-width:0px;
+    	 background-color:skyblue; 
+   		 border-radius: 25%;
+	}
 	a{
 		text-decoration:none
 	}
@@ -65,6 +74,50 @@ background: linear-gradient(skyblue,mediumpurple);
 
 <head>
 	<meta charset="utf-8">
+<<<<<<< HEAD
+	<meta name="viewport" content="width=device-width" />
+	<title>Myweb</title>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<script>
+$(document).ready(function(){
+	 $("#my").hide();
+	 $("p").hide();
+	 $("ul").hide();
+	 $("span").hide();
+	 $("#about").click(function(){
+     $("#me").slideToggle("slow");
+	 });
+	 $("#birth").click(function(){
+     $("#day").slideToggle("slow");
+	 });
+	  $("#constellation").click(function(){
+     $("#taurus").slideToggle("slow");
+	 });
+	   $("#insterest").click(function(){
+     $("#faviorate").slideToggle("slow");
+	 });
+	    $("#e").click(function(){
+     $("#mail").slideToggle("slow");
+	 });
+	 $("#close").click(function(){
+        $("p").slideUp(1000);
+        $("ul").slideUp(1000);
+        $("#my").slideUp(2000);
+    });
+	  $("#close").dblclick(function(){
+        $(".label").slideUp(100);
+        $("p").slideUp(1000);
+        $("ul").slideUp(1000);
+        $("#my").slideUp(2000);
+    });
+	 $("#open").click(function(){
+	 	$("#my").slideDown(2000);
+        $(".label").slideDown(100);
+        $("p").slideDown(1000);
+    });
+  })
+=======
 	
 	<title>Myweb</title>
 
@@ -76,14 +129,21 @@ $(document).ready(function(){
         $("img").hide();
     });
 });
+>>>>>>> origin/master
 </script>
 	</head>
 
 <body id="container">
+<<<<<<< HEAD
+=======
 <button>hi</button>
+>>>>>>> origin/master
 	<div style="text-align:center;font-size: 70px;background-color:lightblue;font-family:fantasy;color:blue">M y w e b s i t e
 	</div>
-
+	<div>
+		<marquee style="height:20px;color:yellow">W&nbsp;E&nbsp;L&nbsp;C&nbsp;O&nbsp;M&nbsp;E&nbsp;!&nbsp;N&nbsp;I&nbsp;C&nbsp;E&nbsp;&nbsp;T&nbsp;O&nbsp;&nbsp;M&nbsp;E&nbsp;E&nbsp;T&nbsp;&nbsp;Y&nbsp;O&nbsp;U&nbsp;~</marquee>
+	</div>
+	
 <div>
 	<center>
 		<table class="tableset">
@@ -97,22 +157,40 @@ $(document).ready(function(){
 
    				 <td class="label tableset"><img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSoVXgQjRNgierS_QCTBTrT0h1erxe8ZIE56Eb5oF4XCcetU8Lrag" height="45px" width="55px"><a href="https://www.linkedin.com/in/%E6%AD%A3%E6%9D%B0-%E6%9E%97-55386512a/">My   linkedin</a></td>
 
-    			 <td  class="label tableset"><img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSAvW_MG74Luf3sEpJeJF5PQxKoTX9zoC2fVw2GCyLD_ASKCiwM" height="45px" width="70px"><a href="https://www.google.com.tw/">Google Search</a></td>
+    			 <td  class="label tableset"><img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSAvW_MG74Luf3sEpJeJF5PQxKoTX9zoC2fVw2GCyLD_ASKCiwM" height="45px" width="70px"><a href="https://www.google.com.tw/">Let's Google</a></td>
 			</tr>
 		</table>
-	</div>
-
-
+	</center>
+</div>
 	
+	
+<<<<<<< HEAD
+		<embed src="music/Flashlight.mp3" width="0" height="0" autostart="true" loop="true"></embed>
+=======
 		<img class="image image-border space" src="https://scontent-tpe1-1.xx.fbcdn.net/v/t31.0-0/p526x296/17545593_1853433601566259_7021335169292064843_o.jpg?oh=f33ed3125ba4a798143eb7d0f9032bf7&oe=5958C971" align="left" alt="my picture">
+>>>>>>> origin/master
+	
+
+<table class="button-set1" border="0">
+		<tr>
+			<td>
+				<button id="close" class="content-set button-set2">關閉</button>
+			</td>
+			<td>
+				<button id="open" class="content-set button-set2">開啟</button>
+			</td>
+		</tr>
+	</table>
+
+		<img class="image image-border" src="https://scontent-tpe1-1.xx.fbcdn.net/v/t31.0-0/p526x296/17545593_1853433601566259_7021335169292064843_o.jpg?oh=f33ed3125ba4a798143eb7d0f9032bf7&oe=5958C971" align="left" alt="my picture" id="my">
 	
 
 	
-		<table class="space" border="0">
+		<table class="space" border="0" id="content">
 			<tr>
 				<td>
-					<p class="title-set title-space">About me:</p>
-						<ul class="content-set content-space">
+					<p id="about" class="title-set title-space">About me:</p>
+						<ul id="me" class="content-set content-space">
 							<li>Living in Taipei</li>
   							<li>Graduated from San Min senior high school</li>
   							<li>Now studying in <span><a href="http://www.miia.fju.edu.tw/layout/oneorange/vvindex.jsp">FJU MIIA</a></span></li>
@@ -121,18 +199,18 @@ $(document).ready(function(){
 			</tr>
 			<tr>
 				<td>
-					<p class="title-set title-space">My Birthday:<span class="content-space content-set"> 05.17</span></h2>
-				<td>
-			</tr>
-			<tr>
-				<td>
-					<p class="title-set title-space">My Constellation:<span class="content-space content-set" style="color:yellow"> Taurus<img src="http://photocdn.sohu.com/20151015/mp35845544_1444900943847_3.jpeg" alt="I'm Taurus." width="120px" height="80px"></span></p>
+					<p id="birth" class="title-set title-space">My Birthday:<span id="day" class="content-space content-set"> 05.17</span></p>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<p class="title-set title-space">My Interest:</p>
-					<ul class="content-set content-space">
+					<p id="constellation" class="title-set title-space">My Constellation:<span id="taurus" class="content-space content-set" style="color:yellow"> Taurus<img src="http://photocdn.sohu.com/20151015/mp35845544_1444900943847_3.jpeg" alt="I'm Taurus." width="120px" height="80px"></span></p>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p id="insterest" class="title-set title-space">My Interest:</p>
+					<ul id="faviorate" class="content-set content-space">
 							<li>Listen to music</li>
   							<li>Read novel</li>
   							<li>Take  a picture</li>
@@ -141,15 +219,10 @@ $(document).ready(function(){
 			</tr>
 			<tr>
 				<td>
-					<p class="title-set title-space">My E-mail:<span class="content-set content-space"> ad870517@gmail.com</span></p>
+					<p id="e" class="title-set title-space">My E-mail:<span id="mail" class="content-set content-space"> ad870517@gmail.com</span></p>
 				</td>
 				
 			</tr>
 		</table>
-	
-	
-
 </body>
-
-
 </html>
