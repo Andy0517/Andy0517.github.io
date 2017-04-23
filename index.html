@@ -13,7 +13,7 @@
     	 border-width: 10px;
    		 border-style: double;
    		 border-radius: 10%;
-   		 margin: 30px 80px 60px 80px;
+   		 margin: 60px 80px 60px 90px;
 	}
 	.space{
 		margin: 0px 80px 60px 80px;
@@ -41,10 +41,10 @@
     	border-collapse: collapse;
     	border: 3px  solid purple;
 	}
-	.button-set1{
-		margin: 0px 0px 0px 190px;
+	.button-space{
+		margin: 15px 0px 0px 190px;
 	}
-	.button-set2{
+	.button-border{
 		 color:blue;
 		 border-width:0px;
     	 background-color:skyblue; 
@@ -74,8 +74,7 @@ background: linear-gradient(skyblue,mediumpurple);
 
 <head>
 	<meta charset="utf-8">
-<<<<<<< HEAD
-	<meta name="viewport" content="width=device-width" />
+
 	<title>Myweb</title>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
@@ -87,6 +86,7 @@ $(document).ready(function(){
 	 $("span").hide();
 	 $("#about").click(function(){
      $("#me").slideToggle("slow");
+     $("#school").slideToggle("slow");
 	 });
 	 $("#birth").click(function(){
      $("#day").slideToggle("slow");
@@ -117,27 +117,14 @@ $(document).ready(function(){
         $("p").slideDown(1000);
     });
   })
-=======
-	
+</script>	
 	<title>Myweb</title>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-<script>
-
-$(document).ready(function(){
-    $("button").click(function(){
-        $("img").hide();
-    });
-});
->>>>>>> origin/master
-</script>
 	</head>
 
 <body id="container">
-<<<<<<< HEAD
-=======
-<button>hi</button>
->>>>>>> origin/master
+
 	<div style="text-align:center;font-size: 70px;background-color:lightblue;font-family:fantasy;color:blue">M y w e b s i t e
 	</div>
 	<div>
@@ -164,28 +151,23 @@ $(document).ready(function(){
 </div>
 	
 	
-<<<<<<< HEAD
-		<embed src="music/Flashlight.mp3" width="0" height="0" autostart="true" loop="true"></embed>
-=======
-		<img class="image image-border space" src="https://scontent-tpe1-1.xx.fbcdn.net/v/t31.0-0/p526x296/17545593_1853433601566259_7021335169292064843_o.jpg?oh=f33ed3125ba4a798143eb7d0f9032bf7&oe=5958C971" align="left" alt="my picture">
->>>>>>> origin/master
-	
 
-<table class="button-set1" border="0">
+		<embed src="music/Flashlight.mp3" width="0" height="0" autostart="true" loop="true"></embed>
+
+<div
+<table class="button-space" border="3">
 		<tr>
 			<td>
-				<button id="close" class="content-set button-set2">關閉</button>
+				<button id="close" class="content-set button-border">關閉</button>
 			</td>
 			<td>
-				<button id="open" class="content-set button-set2">開啟</button>
+				<button id="open" class="content-set button-border">開啟</button>
 			</td>
 		</tr>
 	</table>
+</div>
+<img class="image image-border" src="https://scontent-tpe1-1.xx.fbcdn.net/v/t31.0-0/p526x296/17545593_1853433601566259_7021335169292064843_o.jpg?oh=f33ed3125ba4a798143eb7d0f9032bf7&oe=5958C971" align="left" alt="my picture" id="my">
 
-		<img class="image image-border" src="https://scontent-tpe1-1.xx.fbcdn.net/v/t31.0-0/p526x296/17545593_1853433601566259_7021335169292064843_o.jpg?oh=f33ed3125ba4a798143eb7d0f9032bf7&oe=5958C971" align="left" alt="my picture" id="my">
-	
-
-	
 		<table class="space" border="0" id="content">
 			<tr>
 				<td>
@@ -193,7 +175,7 @@ $(document).ready(function(){
 						<ul id="me" class="content-set content-space">
 							<li>Living in Taipei</li>
   							<li>Graduated from San Min senior high school</li>
-  							<li>Now studying in <span><a href="http://www.miia.fju.edu.tw/layout/oneorange/vvindex.jsp">FJU MIIA</a></span></li>
+  							<li>Now studying in <span id="school"><a href="http://www.miia.fju.edu.tw/layout/oneorange/vvindex.jsp">FJU MIIA</a></span></li>
 						</ul>
 				</td>
 			</tr>
@@ -225,4 +207,3 @@ $(document).ready(function(){
 			</tr>
 		</table>
 </body>
-</html>
