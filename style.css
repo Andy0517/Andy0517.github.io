@@ -1,0 +1,52 @@
+.label{
+		font-size: 35px;background-color:mediumpurple;
+		width:15%
+	}
+	.image{
+		width: 370px;
+	}
+	.image-border{
+		 border-color: blue;
+    	 border-width: 10px;
+   		 border-style: double;
+   		 border-radius: 10%;
+   		 margin: 60px 80px 60px 90px;
+	}
+	.space{
+		margin: 0px 80px 60px 80px;
+	}
+	.title-set{
+		font-weight:bold;
+		font-family:sans-serif;
+		font-size:50px;
+		color:darkblue;
+	}
+	.title-space{
+		margin: 0px 0px 20px 0px;
+	}
+	.content-space{
+		margin: -30px 0px -10px 0px;
+	}
+	.content-set{
+		font-weight:lighter;
+		font-size:40px;
+		font-family:monospace;
+		color:purple;
+	}
+	
+	.tableset{
+    	border-collapse: collapse;
+    	border: 3px  solid purple;
+	}
+	.button-space{
+		margin: 15px 0px 0px 190px;
+	}
+	.button-border{
+		 color:blue;
+		 border-width:0px;
+    	 background-color:skyblue; 
+   		 border-radius: 25%;
+	}
+	a{
+		text-decoration:none
+	}
