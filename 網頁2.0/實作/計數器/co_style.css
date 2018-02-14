@@ -1,0 +1,89 @@
+*{
+	/*border:solid 1px;*/
+	position: relative;
+	text-align: center;
+	font-family: 微軟正黑體;
+	cursor: default;
+}
+body,html{
+	width: 100%;height: 100%;
+	margin: 0px;
+}
+body{
+	background-color: #7a7b7c;
+}
+
+.con{
+	position: absolute;
+	left: 50%;
+	top:50%;
+	transform: translateX(-50%)translateY(-50%);
+	border:solid 2px white;
+	border-radius: 10px;
+
+	color: white;
+}
+.dis, .number, .add, .talk, .off, .con{
+	display: inline-block;
+	font-size: 100px;
+}
+.dis, .add{
+	cursor: pointer;
+	width: 70px;
+	user-select: none;
+	border-radius: 10px;
+}
+.dis:hover ,.add:hover{
+	background-color: white;
+	color: #7a7b7c;
+}
+.number{
+	width: 120px;
+}
+.text{
+	font-size: 25px;
+	padding-top: 10px;
+ 	padding-bottom: 10px;
+
+ 	border-bottom: 8px solid #09c645;
+ 	color: #09c645;
+
+ 	font-weight: bold;
+}
+.phone{
+	color: #ff0202;
+	height:0px;
+	overflow: hidden;
+	font-size: 15px;
+	cursor: pointer;
+	transition-duration: 0.5s;
+	user-select: none;
+}
+.ph_state{
+	height:0px;
+	overflow: hidden;
+	font-size: 20px;
+	overflow: hidden;
+	transition-duration: 0.5s;
+	background-color: #34ed40;
+	border-radius: 0px 0px 10px 10px;
+}
+.open_phone{
+	padding-top: 10px;
+ 	height: 30px;
+}
+.open_ph_state{
+	padding-top: 10px;
+ 	height: 30px;
+}
+.shine{
+	animation:shing 0.3s infinite;
+}
+@keyframes shing{
+	0%{
+		color:white;
+	}
+	100%{
+		color: #ff0202;
+	}
+}

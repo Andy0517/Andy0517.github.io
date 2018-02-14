@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<link rel="stylesheet" href="./phone.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../im_style.css">
+<head>
+	<title>手機</title>
+
+	<script>
+		$(document).ready(function(){
+			var page = 0;
+			var screen_audio=new Audio("http://www.monoame.com/awi_class/ballsound/click18.wav");
+			$(".screen").click(function(){
+				page++;
+				screen_audio.play();
+			 	$(".pages").css("left","-"+page*100+"%");
+			 		if(page>=3){
+			 			$(".pages").css("left","-100%");
+			 			if(page>3){
+			 				page=0;
+			 				$(".pages").css("left","0%");
+			 			}
+			 		}
+			});
+			var home_audio=new Audio("http://www.monoame.com/awi_class/ballsound/click23.wav");
+			$(".home").click(
+				function(){
+					// $(".phone").removeClass("shock");
+					$(".pages").css("left","0%");
+					home_audio.play();
+				});
+			var button_audio=new Audio("http://www.monoame.com/awi_class/ballsound/click14.wav");
+			$(".big").click(
+				function(){
+					$(".phone").css("width","36%");
+					$(".phone").css("height","80%");
+					$(".function").text("功能1"+" "+":"+" "+"放大");
+					button_audio.play();
+				});
+			$(".small").click(
+				function(){
+					$(".phone").css("width","15%");
+					$(".phone").css("height","45%");
+					$(".function").text("功能2"+" "+":"+" "+"縮小");
+					button_audio.play();
+				});
+			$(".restore").click(
+				function(){
+					$(".phone").css("width","");
+					$(".phone").css("height","");
+					$(".function").text("功能3"+" "+":"+" "+"恢復");
+					button_audio.play();
+				});
+			var time=0;
+			$(".circle").click(
+				function(){
+					time++;
+					$(".phone").css("transform","rotate("+time*360+"deg)");
+					$(".function").text("功能4"+" "+":"+" "+"旋轉");
+					button_audio.play();
+				});
+			// $(".shake").click(
+			// 	function(){
+			// 		$(".screen").html("<p>電話來了</p>");
+			// 		$(".phone").addClass("shock");
+			// 	});
+			var wiggle_audio=new Audio("http://www.monoame.com/awi_class/ballsound/phonevi.mp3");
+			 $(".shake").click(
+				function(){
+					wiggletime=0;
+					$(".function").text("功能5"+" "+":"+" "+"震動");
+					wiggle_audio.play();
+				});
+			 var wiggletime=21;
+			 setInterval(function(){
+			 	if (wiggletime<=20){
+			 	wiggletime+=1;
+			    if (wiggletime%2==0){
+			      $(".phone").css("left","-40px");
+			    }else{
+			      $(".phone").css("left","40px");
+			    }
+			    
+			    if (wiggletime==21){
+			      $(".phone").css("left","");
+			    } }
+				},60);
+		});
+	</script>
+
+</head>
+<body>
+	<div class="phone">
+		<div class="top">
+			<div class="camera">
+				<div class="shot"></div>
+			</div>
+		</div>
+		<div class="screen">
+			<div class="pages">
+				<div class="page"></div>
+				<div class="page page2"></div>
+				<div class="page page3"></div>
+			</div>
+		</div>
+		<div class="bottom">
+			<div class="home">
+				<div class="gh"></div>
+			</div>
+		</div>
+	</div>
+	<h3>這是一支手機</h3>
+	<h4 class="function">功能</h4>
+	<div class="buttons">
+		<button class="big">功能1</button>
+		<button class="small">功能2</button>
+		<button class="restore">功能3</button>
+		<button class="circle">功能4</button>
+		<button class="shake">功能5</button>
+	</div>
+	<div class="back_btn"><div class="back_text"><p><a href="../實作.html">回前頁</a></p></div></div>
+</body>
+</html>

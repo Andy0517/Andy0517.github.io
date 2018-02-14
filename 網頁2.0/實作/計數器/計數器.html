@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<link rel="stylesheet" type="text/css" href="./co_style.css">
+	<link rel="stylesheet" type="text/css" href="../im_style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<head>
+	<title>計數器</title>
+	<script>
+		var num=12;
+		var nowtime;
+		var min = 0;
+		var sec = 0;
+
+		function click(var_ch){
+			if(sec!=" "){
+				num = num;}
+			else{num = num-var_ch;
+			$(".number").text(num);}
+		}
+		function check(){
+			if(num<0){
+				$(".text").text("錯誤!!!");
+				$(".text").css("color","white");
+				$(".number").css("color","white");
+				$(".phone").removeClass("open_phone");
+				$(".con").css("background-color","#ff0202");
+				$("ph_state").removeClass("open_ph_state");
+			}else if(num==0){
+				$(".text").css("border-bottom-color","white");
+				$(".text").text("缺貨");
+				$(".text").css("color","#ff0202");
+				$(".phone").addClass("open_phone shine");
+				$(".phone").text("!!! ☎ 盡速點此2下聯絡廠商預約存貨!!!");
+
+				$(".con").css("background-color","#7a7b7c");
+				$(".number").css("color","#ff0202");
+			}else if(num<10){
+				$(".text").css("border-bottom-color","#ff8821");
+				$(".text").text("庫存不足");
+				$(".text").css("color","#ff8821");
+				$(".number").css("color","white");
+				$(".phone").addClass("open_phone");
+				$(".phone").removeClass("shine");
+				$(".phone").text("☎ 點此2下聯絡廠商預約存貨");
+			}else if(num<30){
+				$(".text").css("border-bottom-color","#09c645");
+				$(".text").text("尚有庫存");
+				$(".text").css("color","#09c645");
+				$(".phone").removeClass("open_phone");
+			}else{
+				$(".text").css("border-bottom-color","#9e0bed");
+				$(".text").text("庫存過多﹐請減少進貨");
+				$(".text").css("color","#9e0bed");
+			}
+		}
+		function time(){
+				sec=sec+1;
+				if(sec>=60){
+					min=min+1;
+					sec=sec-60;}
+				if(min<10){
+					if(sec<10){
+					$(".ph_state").text(" ☎ 通話中....."+0+min+":"+0+sec);
+				}else{
+					$(".ph_state").text(" ☎ 通話中....."+0+min+":"+sec);
+					}
+				}else{
+					if(sec<10){
+					$(".ph_state").text(" ☎ 通話中....."+min+":"+0+sec);
+				}else{
+					$(".ph_state").text(" ☎ 通話中....."+min+":"+sec);
+					}
+				}
+			}
+		$(document).ready(function(){
+			$(".dis").click(
+				function(){
+					if(sec!=" "){
+					click(0);}else{
+					click(1);
+					check();}
+				}
+				);
+			$(".add").click(
+				function(){
+					if(sec!=" "){
+					click(0);}else{
+					click(-1);
+					check();}
+				}
+				);
+			$(".phone").dblclick(
+				function(){
+					$(".ph_state").text(" ☎ 通話中....."+"00:00");
+					$(".ph_state").addClass("open_ph_state");
+					$(".phone").text("結束通話");
+					$(".phone").css("color","white");
+					$(".phone").css("background-color","#e8160b");
+					nowtime = setInterval(function(){time();},1000);
+				}
+				);
+			$(".phone").click(
+				function(){
+					clearInterval(nowtime);
+					sec = 0;
+					$(".phone").css("color","#ff0202");
+					$(".ph_state").removeClass("open_ph_state");
+					$(".phone").css("background-color","#7a7b7c");
+						if(num==0){
+							$(".phone").text("!!! ☎ 盡速點此2下聯絡廠商預約存貨!!!");
+						}else{
+							$(".phone").text("☎ 點此2下聯絡廠商預約存貨");
+						}
+						}
+						);
+		});
+	</script>
+</head>
+<body>
+	<div class="con">
+		<div class="dis btn">-</div>
+		<div class="number">12</div>
+		<div class="add btn">+</div>
+		<div class="text">尚有庫存</div>
+		<div class="phone">☎ 點此2下聯絡廠商預約存貨</div>
+		<div class="ph_state"> ☎ 通話中.....</div>
+	</div>
+	<div class="back_btn"><div class="back_text"><p><a href="../實作.html">回前頁</a></p></div></div>
+</body>
+</html>

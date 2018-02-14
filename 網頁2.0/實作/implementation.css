@@ -1,0 +1,33 @@
+*{
+	/*border: solid 1px;*/
+	font-family: 微軟正黑體;
+	position: relative;
+}
+body,html{
+	width: 100%;height: 100%;
+	margin: 0px;
+}
+img{
+	width: 57%;height: 285px;
+}
+p{
+	font-size: 25px;
+	position: absolute;
+	top:-10px;
+	left: 227px;
+}
+.im_dec{
+	width:30%;height: 350px;
+	display: inline-block;
+}
+.im_text{
+	position: absolute;
+	bottom: 0px;
+	width: 100%;height: 60px;
+}
+@media screen and (max-width: 1000px){
+.im_dec{
+	width:30%;height: 350px;
+	display:block;
+}
+}

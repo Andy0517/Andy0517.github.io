@@ -1,0 +1,71 @@
+.namecard{
+  width:500px;height:250px;
+  padding:15px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 150px;
+  
+  font-size:20px;
+  letter-spacing: 1px;
+  font-weight: 100;
+  
+  color: #666;
+  background-color: #eee;
+  
+  overflow: hidden;
+  border: solid 0px rgba(0,0,0,0.15);
+  border-radius: 6px;
+  box-shadow: 0px 18px 25px rgba(0,0,0,0.15);
+  -webkit-transition-duration: 3s;
+}
+
+
+.namecard:hover .circle1{
+  background-color: purple;
+  -webkit-transition-duration: 5s;
+}
+.namecard:hover .circle2{
+  border-color: purple;
+  -webkit-transition-delay: 1s;
+  -webkit-transition-duration: 5s;
+}
+.namecard:active{
+  transform: translateX(-10%) translateY(-15%);
+  box-shadow: 40px 80px 100px rgba(0,0,0,0.6);
+}
+
+.namecard h2{
+  font-weight: 800;
+}
+.namecard h2 span{
+  font-size:20px;
+}
+.namecard h5{
+  color: #555;
+  font-weight: 600;
+}
+.description{
+   font-size:15px;
+}
+.circle{
+  width: 100px; height: 100px;
+  border-radius: 100%;
+  position: absolute;
+}
+.circle1{
+  right: 100px;
+  bottom: -60px;
+  background-color: mediumpurple;
+}
+.circle2{
+  width: 220px; height:220px;
+  right: -110px;
+  top: -110px;
+  border: solid 3px mediumpurple;
+}
+.mark{
+  font-size: 200px;
+  text-align:center;
+  font-weight: 100;
+  color: rgba(0,0,0,0.035);
+}

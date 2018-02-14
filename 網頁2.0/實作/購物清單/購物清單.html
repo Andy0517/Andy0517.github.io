@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<link rel="stylesheet" href="./shop.css">
+	<link rel="stylesheet" type="text/css" href="../im_style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<head>
+	<title>購物清單</title>
+	<script>
+		var shoplist={};
+			shoplist.name="Myㄉ購物清單";
+			shoplist.time="2018/02/09";
+			shoplist.list=[
+ 				{name: "吹風機",price: 300,dec: "這是一隻普通的吹風機"},
+  				{name: "麥克筆",price: 9000,dec: "這是一支紅色的吹風機"},
+  				{name: "筆記型電腦",price: 54555,dec: "這是一臺高效能的筆記型電腦"},
+ 	 			{name: "Iphone 9",price: 32000,dec: "這是一支缺貨的Iphone 9"},
+  				{name: "神奇海螺",price: 5000,dec: "這是一個不神奇的神奇海螺"}
+				];
+
+		var item_html="<li id={{id}} class='buy_item'>{{num}}.{{item}}<div class='price'>{{price}}</div><div id={{del_id}} data-delid={{del_item_id}} class='del_btn'>X</div><div class='dec'>{{dec}}</div></li>";
+
+		var total_html="<div class='total_box'><div class='total_text'>總消費</div><div class='money'>{{price}}</div></div>";
+
+		$(document).ready(function(){
+			function showlist(){
+				$(".buylist").html("");
+			var total_price=0;
+				for(var i=0;i<shoplist.list.length;i++){
+					var item=shoplist.list[i];
+    				var item_id="buyitem_"+i;
+    				var del_item_id="del_buyitem_"+i;
+    
+    				total_price+=parseInt(item.price);
+
+    				var current_item_html=item_html.replace("{{num}}",i+1)
+								                   .replace("{{item}}",item.name)
+								                   .replace("{{id}}",item_id)
+								                   .replace("{{del_id}}",del_item_id)
+								                   .replace("{{price}}",item.price)
+								                   .replace("{{dec}}",item.dec)
+								                   .replace("{{del_item_id}}",i);
+						
+						$(".buylist").append(current_item_html);
+						$("#"+del_item_id).click(function(){
+        					remove_item(parseInt($(this).attr("data-delid")));
+     						 	}
+   							);
+						}
+						var current_total_html=total_html.replace("{{price}}",total_price);
+  							$(".buylist").append(current_total_html);
+					}
+					showlist();
+
+
+  					$(".finish").click(function(){
+    						shoplist.list.push(
+    							{
+							        name:$(".input_name").val(),
+							        price: $(".input_price").val(),
+							        dec:$(".text").val()
+      							});
+						    $(".input_name").val("");
+						    $(".input_price").val("0");
+						    $(".text").val("");
+						    showlist();
+						    $(".input_dec").css("opacity","0");
+  						});
+  					function remove_item(id){
+  						shoplist.list.splice(id,1); //刪除項目 陣列.splice(位置,長度) 
+  						showlist();
+					}
+			$(".all_dec").click(function(){
+				$(".dec").css("height","auto");
+
+		});
+			$(".off").click(function(){
+				$(".dec").css("height","");
+		});
+			$(".add_btn").click(function(){
+				
+			$(".input_dec").css("opacity","1");
+		});
+		});
+	</script>
+</head>
+<body>
+	<div class="shoplist">
+	<div class="input_dec">備註:<textarea rows="5" cols="20" class ="text"></textarea><div class="finish">完成</div></div>
+		<h1>Myㄉ購物清單
+			<div class="all_dec">觀看全部</div>
+			<div class="all_dec off">取消</div>
+		</h1>
+	<div class="buy_inputer">
+		<label>產品名</label><input class="input_name">
+		<label>價錢</label><input class="input_price" value="0">
+		<span class="add_btn">+新增</span>
+		<div class="buylist">
+			<!-- <li class="buy_item">
+				1.吹風機
+				<div class="price">100</div>
+				<div class="del_btn">X</div>
+				<div class="dec"></div>
+			</li>
+			<li class="buy_item">
+				1.吹風機
+				<div class="price">100</div>
+				<div class="del_btn">X</div>
+				<div class="dec"></div>
+			</li>
+			<li class="buy_item">
+				1.吹風機
+				<div class="price">100</div>
+				<div class="del_btn">X</div>
+				<div class="dec"></div>
+			</li>
+			<li class="buy_item">
+				1.吹風機
+				<div class="price">100</div>
+				<div class="del_btn">X</div>
+				<div class="dec"></div>
+			</li>
+			<li class="buy_item">
+				1.吹風機
+				<div class="price">100</div>
+				<div class="del_btn">X</div>
+				<div class="dec"></div>
+			</li>
+		</div>-->
+		<!-- <div class="total_box">
+			<div class="total_text">總消費</div>
+			<div class="money">500</div>
+		</div> -->
+	</div>
+	</div>
+	</div>
+	<div class="back_btn"><div class="back_text"><p><a href="../實作.html">回前頁</a></p></div></div>
+</body>
+</html>

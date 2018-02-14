@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<link rel="stylesheet" type="text/css" href="../style.css">
+	<link rel="stylesheet" type="text/css" href="./home.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<head>
+	<meta charset="utf-8">
+	<title>Lin website</title>
+
+	<script>
+	$(document).ready(function(){
+		$(".circle").mouseenter(
+			function(){
+				$(".circle-text").text("知道更多");
+				$(".circle").removeClass("circlechange");
+			});
+		$(".circle").mouseleave(
+			function(){
+				$(".circle-text").text("點我點我");
+				$(".circle").addClass("circlechange");
+			});
+		setTimeout(function(){
+			$(".circle").addClass("circlechange");
+		},1000);
+ 		
+		});
+	</script>
+
+</head>
+<body>
+	<h1 class="title">
+		<div class="block lblock1"></div>
+		<div class="block lblock2"></div>
+		<div class="block rblock1"></div>
+		<div class="block rblock2"></div>
+		LIN WEBSITE
+	</h1>
+	<center>
+	<marquee >WELCOME!&nbsp;&nbsp;NICE&nbsp;&nbsp;TO&nbsp;&nbsp;MEET&nbsp;&nbsp;YOU~</marquee>
+	<div class="circle">
+			<a href="../自我介紹/自我介紹.html"  class="circle-text">點我點我</a>
+	</div>
+	</body>
+</html>

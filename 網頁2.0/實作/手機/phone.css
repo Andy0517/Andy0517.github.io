@@ -1,0 +1,145 @@
+*{
+	/*border:solid 1px;*/
+	font-family: 微軟正黑體;
+	position: relative;
+}
+body,html{
+	width: 100%;height: 100%;
+	margin: 0px;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+
+	background-color: #838d8e;
+}
+button{
+	background-color:#74e3f7;
+	border: 0px ;
+	border-radius: 5px;
+	padding: 3px 15px 3px 15px;
+	margin:0px 15px 0px 15px;
+
+	font-size: 20px;
+
+	cursor: pointer;
+}
+button:hover{
+	background-color:#b7b0ba;
+	color: white;
+}
+h3,h4{
+	margin: 5px 0px 5px 0px;
+}
+.phone{
+	width: 18%;
+	height: 65%;
+	display: inline-block;
+	left:0;
+	border-radius: 10px;
+
+	background-color:#74e3f7;
+
+	transition-duration: 1s;
+}
+.top{
+	width: 100%;
+	height: 10%;
+	border-radius: 10px 10px 0px 0px;
+}
+.camera{
+	width: 42px;height: 42px;
+	border-radius: 100%;
+	position: absolute;
+	left:50%;
+	top:50%;
+	transform: translateX(-50%)translateY(-50%);
+
+	background-color: #474849; 
+}
+.shot{
+	width: 27px;height: 27px;
+	border-radius: 100%;
+	position: absolute;
+	left:50%;
+	top:50%;
+	transform: translateX(-50%)translateY(-50%);
+
+	background-color: black; 
+}
+.screen{
+	width: 95%;
+	height: 74%;
+	margin-left:auto;
+	margin-right: auto;
+	border-radius: 2px;
+
+	overflow: hidden;
+
+	background-color: #383c3d; 
+}
+.pages{
+	width: 100%;
+	height: 100%;
+	left:0%;
+	white-space: nowrap;
+	border-radius: 2px;
+	font-size: 0px;
+	transition-duration: 1s;
+}
+.page{
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	white-space: normal;
+
+	border-radius: 2px;
+	background-color:#b218ea;
+}
+.page2{
+	background-color: #e719ea;
+}
+.page3{
+	background-color: #cc073f;
+}
+.bottom{
+	width: 100%;
+	height: 15%;
+	border-radius: 0px 0px 10px 10px;
+}
+.home{
+	width: 60px;height: 60px;
+	border-radius: 100%;
+	position: absolute;
+	left:50%;
+	top:50%;
+	transform: translateX(-50%)translateY(-50%);
+
+	background-color:#e6eaf2;
+
+	cursor: pointer;
+}
+.home:hover{
+	background-color: #d2dbda;
+}
+.gh{
+	width: 30px;height: 30px;
+	border-radius: 10px;
+	position: absolute;
+	left:30px;
+	top:30px;
+	transform: translateX(-50%)translateY(-50%);
+
+	border: 2px black solid;
+}
+/*.shock{
+	animation: shock 0.09s infinite;
+}
+@keyframes shock{
+	0%{
+		left:10px;
+	}
+	100%{
+		left:-10px;
+	}
+}*/

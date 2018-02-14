@@ -1,0 +1,37 @@
+*{
+	/*border: solid 2px;*/
+	font-family: 微軟正黑體;
+	position: relative;
+	vertical-align:top;
+}
+.contitle{
+	margin:5% 10% -2% 10%;
+	/*width: 30%; */
+	letter-spacing: 3px;
+	font-size: 30px;
+	color: purple;
+	display: inline-block;
+	
+}
+.contitle_1{
+	margin:5% 10% -2% 10%;
+	/*width: 30%; */
+	letter-spacing: 3px;
+	font-size: 30px;
+	color: purple;
+	display: inline-block;
+	
+}
+.text{
+	margin-top:10px;
+}
+.text_point{
+	margin-top:10px;
+	cursor: pointer;
+}
+.image{
+	margin-bottom: -10px;
+	width: 100px;
+	height: 100px;
+	border-radius: 30%;
+}

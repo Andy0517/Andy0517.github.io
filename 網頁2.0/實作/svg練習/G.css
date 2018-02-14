@@ -1,0 +1,84 @@
+*{
+	/*border:2px solid;*/
+}
+.svg{
+	margin: 10px;
+	display: inline-block;
+}
+body,html{
+  width: 100%;height: 100%;
+  margin: 0px;
+  background-color: #6fa1f2;
+}
+h1{
+  margin-left: -300px;
+  font-size: 500%;
+}
+svg {
+  width: 300px;
+  stroke: black;
+  stroke-width: 2px;
+  fill:none;
+  border-radius: 10%
+}
+.box{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+/**/
+#vector_gp .plus{
+	fill:orange;
+	stroke: transparent;
+}
+#vector_gp .de{
+	fill:yellow;
+	stroke: transparent;
+}
+/**/
+#ig_gp{
+	 background: -webkit-linear-gradient(red,purple,purple,purple,red);
+}
+#ig_gp circle,rect{
+	fill:purple;
+}
+
+#ig_gp rect{
+	stroke:transparent;
+}
+
+#ig_gp line{
+  stroke: white;
+  stroke-width:9px;
+}
+.chart{
+  stroke: white;
+  stroke-width:5px;
+}
+.cir{
+  stroke: white;
+  stroke-width:6px;
+}
+/**/
+.under{
+	fill: yellow;
+}
+.on{
+	fill: blue;
+}
+#ani_gp line{
+  stroke: white;
+  stroke-width:3px;
+}
+/**/
+#home{
+  background-color: black;
+}
+#home rect{
+  stroke: white;
+  fill:none;
+}
+#home line{
+  stroke: white;
+}
