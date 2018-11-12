@@ -56,8 +56,9 @@ $.get('https://script.google.com/macros/s/AKfycbzEwnfqVaOMNUOa2T7Yvj-Fg4DqF5UKQ_
 	$("#humidity00").attr("value", data);
 });
 }
-setInterval(get_tem, 10000);
-setInterval(get_humidity, 10000);
+
+setInterval(get_tem, 3000);
+setInterval(get_humidity, 3000);
 	</script>
 <body>
 <!--<script>
@@ -122,22 +123,22 @@ setInterval(get_humidity, 10000);
 		</div>
 		<div class="dot" style="top: 20px;width: 200px;">
 		<center><b>100</b></br>
-		溫度 : <input id="tem00" value=" " style="width: 50px;">濕度 : <input id="humidity00" value=" " style="width: 50px;">
+		溫度 : <input id="tem00" value="偵測中..." style="width: 50px;">濕度 : <input id="humidity00" value="偵測中..." style="width: 50px;">
 		</center>
 		</div>
 		<div class="dot" style="top: 90px;width: 200px;">
 		<center><b>101</b></br>
-		溫度 : <input id="tem01" value=" " style="width: 50px;">濕度 : <input id="humidity01" value=" " style="width: 50px;">
+		溫度 : <input id="tem01" value="偵測中..." style="width: 50px;">濕度 : <input id="humidity01" value="偵測中..." style="width: 50px;">
 		</center>
 		</div>
 		<div class="dot" style="top: 175px;width: 200px;">
 		<center><b>102</b></br>
-		溫度 : <input id="tem02" value=" " style="width: 50px;">濕度 : <input id="humidity02" value=" " style="width: 50px;">
+		溫度 : <input id="tem02" value="偵測中..." style="width: 50px;">濕度 : <input id="humidity02" value="偵測中..." style="width: 50px;">
 		</center>
 		</div>
 		<div class="dot" style="top: 250px;width: 200px;">
 		<center><b>103</b></br>
-		溫度 : <input id="tem03" value=" " style="width: 50px;">濕度 : <input id="humidity03" value=" " style="width: 50px;">
+		溫度 : <input id="tem03" value="偵測中..." style="width: 50px;">濕度 : <input id="humidity03" value="偵測中..." style="width: 50px;">
 		</center>
 		</div>
 	</div>
