@@ -48,16 +48,16 @@
 };
 function get_tem(){
 $.get('https://script.google.com/macros/s/AKfycbx11W86suAwzJqKCghefUqfGC3I9I_677rxF8eZXOtfW8fsKDM/exec', parameter, function(data) {
-	$("#tem").attr("value", data);
+	$("#tem00").attr("value", data);
 });
 }
 function get_humidity(){
 $.get('https://script.google.com/macros/s/AKfycbzEwnfqVaOMNUOa2T7Yvj-Fg4DqF5UKQ_XCfSev09su_sIx_FYX/exec', parameter, function(data) {
-	$("#humidity").attr("value", data);
+	$("#humidity00").attr("value", data);
 });
 }
-setInterval(get_tem, 1000);
-setInterval(get_humidity, 1000);
+setInterval(get_tem, 10000);
+setInterval(get_humidity, 10000);
 	</script>
 <body>
 <!--<script>
@@ -120,19 +120,25 @@ setInterval(get_humidity, 1000);
 	<div class="data">
 		<div style = "width:1300px;height: 600px;background-color: white;display: inline-block;border: solid 5px;">	
 		</div>
-		<div class="dot" style="top: 0px;width: 200px;">
-		<center>檢測器1號
-		<input id="tem" value=" "><input id="humidity" value=" ">
+		<div class="dot" style="top: 20px;width: 200px;">
+		<center><b>100</b></br>
+		溫度 : <input id="tem00" value=" " style="width: 50px;">濕度 : <input id="humidity00" value=" " style="width: 50px;">
 		</center>
 		</div>
 		<div class="dot" style="top: 90px;width: 200px;">
-		<center><h2>檢測器2號</h2></center>
+		<center><b>101</b></br>
+		溫度 : <input id="tem01" value=" " style="width: 50px;">濕度 : <input id="humidity01" value=" " style="width: 50px;">
+		</center>
 		</div>
-		<div class="dot" style="top: 190px;width: 200px;">
-		<center><h2>檢測器3號</h2></center>
+		<div class="dot" style="top: 175px;width: 200px;">
+		<center><b>102</b></br>
+		溫度 : <input id="tem02" value=" " style="width: 50px;">濕度 : <input id="humidity02" value=" " style="width: 50px;">
+		</center>
 		</div>
-		<div class="dot" style="top: 290px;width: 200px;">
-		<center><h2>檢測器4號</h2></center>
+		<div class="dot" style="top: 250px;width: 200px;">
+		<center><b>103</b></br>
+		溫度 : <input id="tem03" value=" " style="width: 50px;">濕度 : <input id="humidity03" value=" " style="width: 50px;">
+		</center>
 		</div>
 	</div>
 	</body>
