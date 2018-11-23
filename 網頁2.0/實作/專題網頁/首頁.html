@@ -2,14 +2,14 @@
 <html>
 	<link rel="stylesheet" type="text/css" href="./style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-	<script src='https://cdn.firebase.com/js/client/1.0.17/firebase.js'></script>
+	<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
 <head>
 	<meta charset="utf-8">
 	<title>智慧型環境監測系統</title>
 </head>
 <script>
 	$(document).ready(function(){
-    $(".button1").click(function(){
+    /*$(".button1").click(function(){
         $("#stage").attr("alt", "我是1F");
     });
     $(".button2").click(function(){
@@ -38,48 +38,64 @@
     });
     $(".button10").click(function(){
         $("#stage").attr("alt", "我是10F");
+    });*/
+    var chose = true;
+    $(".button_list").click(function(){
+    	if(chose == true){
+        $(".right_box").animate({
+                right:"3px"  
+            },2000);
+        $(".img").animate({
+                left:"-100px"  
+            },2000);
+        chose = false;
+        return chose;
+    	}
+    	if(chose == false){
+    		$(".right_box").animate({
+                right:"-500px"  
+            },2000);
+        $(".img").animate({
+                left:"0px"  
+            },2000);
+        chose = true;
+        return chose;
+    	}
     });
-});
-	var parameter = {
-  url: 'https://docs.google.com/spreadsheets/d/1-AE26BWLp8Vjz_bVITRFVRJpvRTx-qOgXwNuwFyhch8/edit#gid=0',
-  name: '工作表1',
-  startRow: 1,
-  startColumn: 1
-};
-function get_tem(){
-$.get('https://script.google.com/macros/s/AKfycbx11W86suAwzJqKCghefUqfGC3I9I_677rxF8eZXOtfW8fsKDM/exec', parameter, function(data) {
-	$("#tem00").attr("value", data);
-});
-}
-function get_humidity(){
-$.get('https://script.google.com/macros/s/AKfycbzEwnfqVaOMNUOa2T7Yvj-Fg4DqF5UKQ_XCfSev09su_sIx_FYX/exec', parameter, function(data) {
-	$("#humidity00").attr("value", data);
-});
-}
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBeIR55eFK_d9rvd7MGvYF8qZUqfcYwo-U",
+    authDomain: "dht11-17f44.firebaseapp.com",
+    databaseURL: "https://dht11-17f44.firebaseio.com",
+    projectId: "dht11-17f44",
+    storageBucket: "dht11-17f44.appspot.com",
+    messagingSenderId: "196282873929"
+  };
 
-setInterval(get_tem, 3000);
-setInterval(get_humidity, 3000);
-	</script>
+	firebase.initializeApp(config);
+	//讀取最新的資料
+	function get_data(number,kind){
+		for(var i=0; i<100000; i++){
+			var userRef = firebase.database().ref('/record/'+number);
+  			userRef.on('value', function(snapshot) {
+	  			$.each(snapshot.val(),function(k,v){
+	  				if(kind=='tem'){
+	  					$('#tem'+number).attr('value', v.tem);
+	          			return false;
+	          		}
+	          		if(kind=='hum'){
+	  					$('#hum'+number).attr('value', v.hum);
+	          			return false;
+	          		}
+	          	})
+			});
+  	}
+		}
+	get_data('101','tem');
+	get_data('101','hum');
+  });
+</script>
 <body>
-<!--<script>
-        var ref = new Firebase("https://iot-16bcf.firebaseio.com/");
-        var usersRef = ref.child("iot-16bcf");
-        usersRef.set({
-            alanisawesome: {
-                date_of_birth: "June 23, 1912",
-                full_name: "Alan Turing"
-            },
-            gracehop: {
-                date_of_birth: "December 9, 1906",
-                full_name: "Grace Hopper"
-            }
-        });
-             firebase.database().ref.child("iot-16bcf").once('value').then(function(snapshot) {
-       self.setState({val:snapshot.val()});
-     });
-
-        document.write(ref.child.alanisawesome.date_of_birth)
-    </script>-->
 <center>
 	<h1 class="title">
 		智慧型環境監測系統
@@ -115,32 +131,40 @@ setInterval(get_humidity, 3000);
 		<li class="button button10">
 		<h2>10F</h2>
 		</li>
+		<button class="button_list" style="padding: 3px;">
+		<center>
+			<div style="background-color: white;width: 55px;height: 5px;margin: 15px;border-radius: 5px;cursor:pointer"></div>
+			<div style="background-color: white;width: 55px;height: 5px;margin: 15px;border-radius: 5px;cursor:pointer"></div>
+			<div style="background-color: white;width: 55px;height: 5px;margin: 15px;border-radius: 5px;cursor:pointer"></div>
+		</center>
+		</button>
 	</ul>
 		<!--<img alt="我是1F" src="#" id="stage">-->
+	<center class="data" style = "width: 1550px; display: inline-block;overflow: hidden;">
+			<div style = "width:1300px;height: 600px;background-color: white;display: inline-block;border: solid 5px;margin-top: 5px;" class="img">	
+			</div>
+		<div class="right_box">
+			<div class="dot">
+			<center><b>100</b></br>
+			溫度 : <input id="tem100" value="偵測中..." style="width: 50px;">濕度 : <input id="hum100" value="偵測中..." style="width: 50px;">
+			</center>
+			</div>
+			<div class="dot">
+			<center><b>101</b></br>
+			溫度 : <input id="tem101" value="偵測中..." style="width: 50px;">濕度 : <input id="hum101" value="偵測中..." style="width: 50px;">
+			</center>
+			</div>
+			<div class="dot">
+			<center><b>102</b></br>
+			溫度 : <input id="tem102" value="偵測中..." style="width: 50px;">濕度 : <input id="hum102" value="偵測中..." style="width: 50px;">
+			</center>
+			</div>
+			<div class="dot">
+			<center><b>103</b></br>
+			溫度 : <input id="tem103" value="偵測中..." style="width: 50px;">濕度 : <input id="hum103" value="偵測中..." style="width: 50px;">
+			</center>
+			</div>
+		</div>
 	</center>
-	<div class="data">
-		<div style = "width:1300px;height: 600px;background-color: white;display: inline-block;border: solid 5px;">	
-		</div>
-		<div class="dot" style="top: 20px;width: 200px;">
-		<center><b>100</b></br>
-		溫度 : <input id="tem00" value="偵測中..." style="width: 50px;">濕度 : <input id="humidity00" value="偵測中..." style="width: 50px;">
-		</center>
-		</div>
-		<div class="dot" style="top: 90px;width: 200px;">
-		<center><b>101</b></br>
-		溫度 : <input id="tem01" value="偵測中..." style="width: 50px;">濕度 : <input id="humidity01" value="偵測中..." style="width: 50px;">
-		</center>
-		</div>
-		<div class="dot" style="top: 175px;width: 200px;">
-		<center><b>102</b></br>
-		溫度 : <input id="tem02" value="偵測中..." style="width: 50px;">濕度 : <input id="humidity02" value="偵測中..." style="width: 50px;">
-		</center>
-		</div>
-		<div class="dot" style="top: 250px;width: 200px;">
-		<center><b>103</b></br>
-		溫度 : <input id="tem03" value="偵測中..." style="width: 50px;">濕度 : <input id="humidity03" value="偵測中..." style="width: 50px;">
-		</center>
-		</div>
-	</div>
 	</body>
 </html>
