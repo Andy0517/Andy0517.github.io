@@ -9,6 +9,9 @@
 </head>
 <script>
 	$(document).ready(function(){
+	function get_number(){
+		 
+	}
     /*$(".button1").click(function(){
         $("#stage").attr("alt", "我是1F");
     });
@@ -62,6 +65,15 @@
         return chose;
     	}
     });
+   	// Initialize Firebase
+  	/*var config = {
+   		apiKey: "AIzaSyCG62ZC4fpnMj6rwXHrgscztwOnS2nTyQM",
+    	authDomain: "cool-53da2.firebaseapp.com",
+    	databaseURL: "https://cool-53da2.firebaseio.com",
+    	projectId: "cool-53da2",
+    	storageBucket: "cool-53da2.appspot.com",
+    	messagingSenderId: "1076769709665"
+  	};*/
   // Initialize Firebase
   var config = {
     apiKey: "AIzaSyBeIR55eFK_d9rvd7MGvYF8qZUqfcYwo-U",
@@ -75,21 +87,32 @@
 	firebase.initializeApp(config);
 	//讀取最新的資料
 	function get_data(number,kind){
-		for(var i=0; i<100000; i++){
 			var userRef = firebase.database().ref('/record/'+number);
   			userRef.on('value', function(snapshot) {
 	  			$.each(snapshot.val(),function(k,v){
 	  				if(kind=='tem'){
 	  					$('#tem'+number).attr('value', v.tem);
-	          			return false;
 	          		}
 	          		if(kind=='hum'){
 	  					$('#hum'+number).attr('value', v.hum);
-	          			return false;
 	          		}
 	          	})
 			});
-  	}
+	/*function get_data(number,kind){
+		for(var i=0; i<1000; i++){
+			var userRef = firebase.database().ref('/data/1'+i+'/'+kind+'/');
+  			userRef.on('value', function(snapshot) {
+  			if(kind=='tem'){
+          	$('#tem'+number).attr('value', snapshot.val());
+          		if(snapshot.val()>33){
+          			alert('警告');
+          		}
+  			}
+  			if(kind=='hum'){
+          	$('#hum'+number).attr('value', snapshot.val());
+  			}
+			});
+  	}*/
 		}
 	get_data('101','tem');
 	get_data('101','hum');
