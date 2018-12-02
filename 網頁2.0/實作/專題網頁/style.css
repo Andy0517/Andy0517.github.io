@@ -13,11 +13,10 @@ html,body{
 }
 body {
 	margin-top:0px;
-	background-color: skyblue;
+	background-color: #c7ccd6;
 }
 ul{
 	margin-top:0px;
-	background-color: mediumpurple;
 }
 h2{
   cursor: pointer;
@@ -27,74 +26,85 @@ h2{
   margin: 60px;
   text-align: center;
   font-size:50px;
-  letter-spacing: 15px;
+  letter-spacing: 10px;
 }
 .button{
 	display: inline-block;
-  	padding-left: 90px;
-  	padding-right: 90px;
+  	padding-left: 12px;
+  	padding-right: 12px;
   	margin-left: 0px;
   	margin-right:10px;
 
   	/*border:solid  4px purple;*/
-  	border-bottom:solid 10px purple;
-    width: 4%;
+  	border-bottom:solid 10px #636161;
+    font-size: 35px;
 
   	cursor: pointer;
 }
 .button:hover{
-	border-bottom:solid 10px mediumpurple;
+	border-bottom:solid 10px #c6c2c2;
 	-webkit-transition-duration: 1s;
 }
 .label{
 	margin:0px;
-	background-color: mediumpurple;
+	background-color: #c6c2c2;
 	font-weight: 500;
-	letter-spacing: 10px;
+	letter-spacing: 3px;
 }
 .data{
   overflow: hidden;
 }
-.img{
+img{
   width: 1200px;
   height:450px;
   border:10px solid mediumpurple;
   border-radius: 10px;
 }
 .dot{
-  border-bottom:solid 2px #7e3da0;
+  border-bottom:solid 2px #332e2e;
   margin: 0px;
   width: 210px;
 }
-.right_box{
+.left_box{
   display: inline-block;
   position: absolute;
   top:0px;
-  right: -500px;
+  left: 0px;
+
+  /*background-color: #c276e8;
+  border-bottom:solid 10px #7e3da0;
+  border-right:solid 5px #944aba;
+  border-left:solid 3px #c86ff7;
+  border-top:solid 2px #d587ff;*/
+}
+.right_box{
+  display: inline-block;
+  position: relative;
+  right: -250px;
 
   overflow-x:hidden;
   overflow-y:auto;
 
-  background-color: #c276e8;
-  border-bottom:solid 10px #7e3da0;
-  border-right:solid 5px #944aba;
-  border-left:solid 3px #c86ff7;
-  border-top:solid 2px #d587ff;
+  background-color: #c6c2c2;
+  border-bottom:solid 10px #332e2e;
+  border-right:solid 5px #333131;
+  border-left:solid 3px #565151;
+  border-top:solid 2px #565050;
 }
 .button_list{
   display: inline-block;
   position: absolute;
   right: 5px;
-  top:40px;
+  top:0px;
   cursor: pointer;
 
-  width: 100px;
-  height: 100px;
-  background-color: #c276e8;
-  border-bottom:solid 5px #7e3da0;
-  border-right:solid 5px #944aba;
-  border-left:solid 3px #c86ff7;
-  border-top:solid 2px #d587ff;
+  width: 60px;
+  height: 60px;
+  background-color: #c6c2c2;
+  border-bottom:solid 8px #332e2e;
+  border-right:solid 5px #333131;
+  border-left:solid 3px #565151;
+  border-top:solid 2px #565050;
   border-radius: 15px;
 }
 .button_list:focus {
