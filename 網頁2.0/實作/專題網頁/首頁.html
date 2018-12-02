@@ -1,81 +1,35 @@
 <!DOCTYPE html>
-<html>
-	<link rel="stylesheet" type="text/css" href="./style.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>智慧型環境監測系統</title>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="./style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <script>
-	$(document).ready(function(){
-	function get_number(){
-		 
-	}
-    /*$(".button1").click(function(){
-        $("#stage").attr("alt", "我是1F");
-    });
-    $(".button2").click(function(){
-        $("#stage").attr("alt", "我是2F");
-    });
-    $(".button3").click(function(){
-        $("#stage").attr("alt", "我是3F");
-    });
-    $(".button4").click(function(){
-        $("#stage").attr("alt", "我是4F");
-    });
-    $(".button5").click(function(){
-        $("#stage").attr("alt", "我是5F");
-    });
-    $(".button6").click(function(){
-        $("#stage").attr("alt", "我是6F");
-    });
-    $(".button7").click(function(){
-        $("#stage").attr("alt", "我是7F");
-    });
-    $(".button8").click(function(){
-        $("#stage").attr("alt", "我是8F");
-    });
-    $(".button9").click(function(){
-        $("#stage").attr("alt", "我是9F");
-    });
-    $(".button10").click(function(){
-        $("#stage").attr("alt", "我是10F");
-    });*/
-    var chose = true;
+$(document).ready(function(){
+ var chose = true;
     $(".button_list").click(function(){
-    	if(chose == true){
+      if(chose == true){
         $(".right_box").animate({
-                right:"3px"  
-            },500);
-        $(".img").animate({
-                left:"-120px"  
+                right:"0px"  
             },500);
         chose = false;
         return chose;
-    	}
-    	if(chose == false){
-    		$(".right_box").animate({
-                right:"-500px"  
-            },500);
-        $(".img").animate({
-                left:"0px"  
+      }
+      if(chose == false){
+        $(".right_box").animate({
+                right:"-250px"  
             },500);
         chose = true;
         return chose;
-    	}
+      }
     });
-   	// Initialize Firebase
-  	/*var config = {
-   		apiKey: "AIzaSyCG62ZC4fpnMj6rwXHrgscztwOnS2nTyQM",
-    	authDomain: "cool-53da2.firebaseapp.com",
-    	databaseURL: "https://cool-53da2.firebaseio.com",
-    	projectId: "cool-53da2",
-    	storageBucket: "cool-53da2.appspot.com",
-    	messagingSenderId: "1076769709665"
-  	};*/
-  // Initialize Firebase
-  var config = {
+    var config = {
     apiKey: "AIzaSyBeIR55eFK_d9rvd7MGvYF8qZUqfcYwo-U",
     authDomain: "dht11-17f44.firebaseapp.com",
     databaseURL: "https://dht11-17f44.firebaseio.com",
@@ -84,156 +38,378 @@
     messagingSenderId: "196282873929"
   };
 
-	firebase.initializeApp(config);
-	//讀取最新的資料
-	function get_data(number,kind){
-			var userRef = firebase.database().ref('/record/'+number);
-  			userRef.on('value', function(snapshot) {
-	  			$.each(snapshot.val(),function(k,v){
-	  				if(kind=='tem'){
-	  					$('#tem'+number).attr('value', v.tem);
-	          		}
-	          		if(kind=='hum'){
-	  					$('#hum'+number).attr('value', v.hum);
-	          		}
-	          	})
-			});
-	/*function get_data(number,kind){
-		for(var i=0; i<1000; i++){
-			var userRef = firebase.database().ref('/data/1'+i+'/'+kind+'/');
-  			userRef.on('value', function(snapshot) {
-  			if(kind=='tem'){
-          	$('#tem'+number).attr('value', snapshot.val());
-          		if(snapshot.val()>33){
-          			alert('警告');
-          		}
-  			}
-  			if(kind=='hum'){
-          	$('#hum'+number).attr('value', snapshot.val());
-  			}
-			});
-  	}*/
-		}
-	get_data('101','tem');
-	get_data('101','hum');
-  });
+  firebase.initializeApp(config);
+  function get_data(number,kind){
+      var userRef = firebase.database().ref('/record/'+number);
+        userRef.on('value', function(snapshot) {
+          $.each(snapshot.val(),function(k,v){
+            if(kind=='tem'){
+              $('#tem'+number).attr('value', v.tem);
+                }
+                if(kind=='hum'){
+              $('#hum'+number).attr('value', v.hum);
+                }
+              })
+      });
+    }
+    //B1
+    get_data('B_101','tem');
+    get_data('B_101','hum');
+    //1f
+    get_data('101','tem');
+    get_data('101','hum');
+     //2f
+    get_data('201','tem');
+    get_data('201','hum');
+     //3f
+    get_data('301','tem');
+    get_data('301','hum');
+     //5f
+    get_data('501','tem');
+    get_data('501','hum');
+     //6f
+    get_data('601','tem');
+    get_data('601','hum');
+     //7f
+    get_data('701','tem');
+    get_data('701','hum');
+     //8f
+    get_data('801','tem');
+    get_data('801','hum');
+     //9f
+    get_data('901','tem');
+    get_data('901','hum');
+     //10f
+    get_data('1001','tem');
+    get_data('1001','hum');
+   });
 </script>
 <body>
-<center>
-	<h1 class="title">
-		智慧型環境監測系統
-	</h1>
-	<ul class="label">
-		<li class="button button1" style="margin-left: -20px;">
-		<h2>1F</h2>
-		</li>
-		<li class="button button2">
-		<h2>2F</h2>
-		</li>
-		<li class="button button3">
-		<h2>3F</h2>
-		</li>
-		<li class="button button4">
-		<h2>4F</h2>
-		</li>
-		<li class="button button5">
-		<h2>5F</h2>
-		</li>
-		<li class="button button6" style="margin-left: -20px;">
-		<h2>6F</h2>
-		</li>
-		<li class="button button7">
-		<h2>7F</h2>
-		</li>
-		<li class="button button8">
-		<h2>8F</h2>
-		</li>
-		<li class="button button9">
-		<h2>9F</h2>
-		</li>
-		<li class="button button10">
-		<h2>10F</h2>
-		</li>
-		<button class="button_list" style="padding: 3px;">
-		<center>
-			<div style="background-color: white;width: 55px;height: 5px;margin: 15px;border-radius: 5px;cursor:pointer"></div>
-			<div style="background-color: white;width: 55px;height: 5px;margin: 15px;border-radius: 5px;cursor:pointer"></div>
-			<div style="background-color: white;width: 55px;height: 5px;margin: 15px;border-radius: 5px;cursor:pointer"></div>
-		</center>
-		</button>
-	</ul>
-		<!--<img alt="我是1F" src="#" id="stage">-->
-	<center class="data" style = "width: 1550px; display: inline-block;">
-			<div style = "width:1300px;height: 600px;background-color: white;display: inline-block;border: solid 5px;margin-top: 5px;" class="img">	
-			</div>
-		<div class="right_box" style="height:600px;">
-			<div class="dot">
-			<center><b style="font-size:30px;">100</b></br>
-			溫度 : <input id="tem100" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
-			濕度 : <input id="hum100" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+
+<div class="container" style="overflow: hidden;">
+  <h1 class="title">智慧型環境監測系統</h1>
+  <nav class="nav nav-tabs navbar-default">
+        <div class="container-fluid">
+            	 <ul class="nav navbar-nav">
+                	<li class="button"><a data-toggle="tab" href="#B1">B1</a></li>
+				    <li class="active button"><a data-toggle="tab" href="#1F">1F</a></li>
+				    <li class="button"><a data-toggle="tab" href="#2F">2F</a></li>
+				    <li class="button"><a data-toggle="tab" href="#3F">3F</a></li>
+				    <li class="button"><a data-toggle="tab" href="#5F">5F</a></li>
+				    <li class="button"><a data-toggle="tab" href="#6F">6F</a></li>
+				    <li class="button"><a data-toggle="tab" href="#7F">7F</a></li>
+				    <li class="button"><a data-toggle="tab" href="#8F">8F</a></li>
+				    <li class="button"><a data-toggle="tab" href="#9F">9F</a></li>
+				    <li class="button"><a data-toggle="tab" href="#10F">10F</a></li>
+                </ul>
+                <button class="button_list" style="padding: 3px;">
+				<center>
+					<div style="background-color: white;width: 35px;height: 5px;margin: 5px;border-radius: 5px;cursor:pointer"></div>
+					<div style="background-color: white;width: 35px;height: 5px;margin: 5px;border-radius: 5px;cursor:pointer"></div>
+					<div style="background-color: white;width: 35px;height: 5px;margin: 5px;border-radius: 5px;cursor:pointer"></div>
+				</center>
+				</button>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+               
+            </div>
+    </nav> 
+
+ <div class="tab-content">
+  	<!--B1-->
+    <div id="B1" class="tab-pane fade" style="text-align: right;">
+      	<div class="right_box" style="height:600px;">
+      <div class="dot">
+			<center><b id="B_101" style="font-size:30px;">B_101</b></br>
+			溫度 : <input id="tem_b01" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			濕度 : <input id="hum_b01" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			</center>
-			</div>
-			<div class="dot">
-			<center><b style="font-size:30px;">101</b></br>
+		</div>
+		<div class="dot">
+			<center><b id="B_102" style="font-size:30px;">B_102</b></br>
+			溫度 : <input id="temB_102" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			濕度 : <input id="humB_102" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</center>
+		</div>
+		<div class="dot">
+			<center><b id="B_103" style="font-size:30px;">B_103</b></br>
+			溫度 : <input id="temB_103" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			濕度 : <input id="humB_103" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</center>
+		</div>
+		<div class="dot">
+			<center><b id="B_105" style="font-size:30px;">B_105</b></br>
+			溫度 : <input id="temB_105" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			濕度 : <input id="humB_105" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</center>
+		</div>
+		</div>
+		</div>
+		<!--1F-->
+    <div id="1F" class="tab-pane fade in active" style="text-align: right;">
+      <div class="right_box" style="height:600px;">
+      <div class="dot">
+			<center><b id="101" style="font-size:30px;">101</b></br>
 			溫度 : <input id="tem101" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			濕度 : <input id="hum101" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			</center>
-			</div>
-			<div class="dot">
-			<center><b style="font-size:30px;">102</b></br>
+		</div>
+		<div class="dot">
+			<center><b id="102" style="font-size:30px;">102</b></br>
 			溫度 : <input id="tem102" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			濕度 : <input id="hum102" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			</center>
-			</div>
-			<div class="dot">
-			<center><b style="font-size:30px;">103</b></br>
+		</div>
+		<div class="dot">
+			<center><b id="103" style="font-size:30px;">103</b></br>
 			溫度 : <input id="tem103" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			濕度 : <input id="hum103" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			</center>
-			</div>
-			<div class="dot">
-			<center><b style="font-size:30px;">104</b></br>
-			溫度 : <input id="tem104" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
-			濕度 : <input id="hum104" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
-			</center>
-			</div>
-			<div class="dot">
-			<center><b style="font-size:30px;">105</b></br>
+		</div>
+		<div class="dot">
+			<center><b id="105" style="font-size:30px;">105</b></br>
 			溫度 : <input id="tem105" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			濕度 : <input id="hum105" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			</center>
-			</div>
-			<div class="dot">
-			<center><b style="font-size:30px;">106</b></br>
-			溫度 : <input id="tem106" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
-			濕度 : <input id="hum106" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
-			</center>
-			</div>
-			<div class="dot">
-			<center><b style="font-size:30px;">107</b></br>
-			溫度 : <input id="tem107" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
-			濕度 : <input id="hum107" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
-			</center>
-			</div>
-			<div class="dot">
-			<center><b style="font-size:30px;">108</b></br>
-			溫度 : <input id="tem108" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
-			濕度 : <input id="hum108" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
-			</center>
-			</div>
-			<div class="dot">
-			<center><b style="font-size:30px;">109</b></br>
-			溫度 : <input id="tem109" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
-			濕度 : <input id="hum109" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
-			</center>
-			</div>
-			<div class="dot">
-			<center><b style="font-size:30px;">110</b></br>
-			溫度 : <input id="tem110" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
-			濕度 : <input id="hum110" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
-			</center>
-			</div>
 		</div>
-	</center>
-	</body>
+		</div>
+    </div>
+    <!--2F-->
+    <div id="2F" class="tab-pane fade" style="text-align: right;">
+      	<div class="right_box" style="height:600px;">
+      <div class="dot">
+			<center><b id="201" style="font-size:30px;">201</b></br>
+			溫度 : <input id="tem201" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			濕度 : <input id="hum201" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</center>
+		</div>
+		<div class="dot">
+			<center><b id="202" style="font-size:30px;">202</b></br>
+			溫度 : <input id="tem202" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			濕度 : <input id="hum202" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</center>
+		</div>
+		<div class="dot">
+			<center><b id="203" style="font-size:30px;">203</b></br>
+			溫度 : <input id="tem203" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			濕度 : <input id="hum203" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</center>
+		</div>
+		<div class="dot">
+			<center><b id="205" style="font-size:30px;">205</b></br>
+			溫度 : <input id="tem205" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			濕度 : <input id="hum205" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</center>
+		</div>
+		</div>
+		</div>
+		<!--3F-->
+    <div id="3F" class="tab-pane fade" style="text-align: right;">
+      	<div class="right_box" style="height:600px;">
+      <div class="dot">
+			<center><b id="301" style="font-size:30px;">301</b></br>
+			溫度 : <input id="tem301" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			濕度 : <input id="hum301" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</center>
+		</div>
+		<div class="dot">
+			<center><b id="302" style="font-size:30px;">302</b></br>
+			溫度 : <input id="tem302" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			濕度 : <input id="hum302" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</center>
+		</div>
+		<div class="dot">
+			<center><b id="303" style="font-size:30px;">303</b></br>
+			溫度 : <input id="tem303" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			濕度 : <input id="hum303" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</center>
+		</div>
+		<div class="dot">
+			<center><b id="305" style="font-size:30px;">305</b></br>
+			溫度 : <input id="tem305" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			濕度 : <input id="hum305" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</center>
+		</div>
+		</div>
+		</div>
+		<!--5F-->
+    <div id="5F" class="tab-pane fade" style="text-align: right;">
+      	<div class="right_box" style="height:600px;">
+      <div class="dot">
+			<center><b id="501" style="font-size:30px;">501</b></br>
+			溫度 : <input id="tem501" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			濕度 : <input id="hum501" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</center>
+		</div>
+		<div class="dot">
+			<center><b id="502" style="font-size:30px;">502</b></br>
+			溫度 : <input id="tem502" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			濕度 : <input id="hum502" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</center>
+		</div>
+		<div class="dot">
+			<center><b id="503" style="font-size:30px;">503</b></br>
+			溫度 : <input id="tem503" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			濕度 : <input id="hum503" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</center>
+		</div>
+		<div class="dot">
+			<center><b id="505" style="font-size:30px;">505</b></br>
+			溫度 : <input id="tem505" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			濕度 : <input id="hum505" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</center>
+		</div>
+		</div>
+		</div>
+		<!--6F-->
+    <div id="6F" class="tab-pane fade" style="text-align: right;">
+      	<div class="right_box" style="height:600px;">
+      <div class="dot">
+			<center><b id="601" style="font-size:30px;">601</b></br>
+			溫度 : <input id="tem601" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			濕度 : <input id="hum601" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</center>
+		</div>
+		<div class="dot">
+			<center><b id="602" style="font-size:30px;">602</b></br>
+			溫度 : <input id="tem602" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			濕度 : <input id="hum602" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</center>
+		</div>
+		<div class="dot">
+			<center><b id="603" style="font-size:30px;">603</b></br>
+			溫度 : <input id="tem603" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			濕度 : <input id="hum603" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</center>
+		</div>
+		<div class="dot">
+			<center><b id="605" style="font-size:30px;">605</b></br>
+			溫度 : <input id="tem605" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			濕度 : <input id="hum605" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</center>
+		</div>
+		</div>
+		</div>
+		<!--7F-->
+    <div id="7F" class="tab-pane fade" style="text-align: right;">
+      	<div class="right_box" style="height:600px;">
+      <div class="dot">
+			<center><b id="701" style="font-size:30px;">701</b></br>
+			溫度 : <input id="tem701" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			濕度 : <input id="hum701" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</center>
+		</div>
+		<div class="dot">
+			<center><b id="702" style="font-size:30px;">702</b></br>
+			溫度 : <input id="tem702" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			濕度 : <input id="hum702" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</center>
+		</div>
+		<div class="dot">
+			<center><b id="703" style="font-size:30px;">703</b></br>
+			溫度 : <input id="tem703" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			濕度 : <input id="hum703" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</center>
+		</div>
+		<div class="dot">
+			<center><b id="705" style="font-size:30px;">705</b></br>
+			溫度 : <input id="tem705" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			濕度 : <input id="hum705" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</center>
+		</div>
+		</div>
+		</div>
+		<!--8F-->
+    <div id="8F" class="tab-pane fade" style="text-align: right;">
+      	<div class="right_box" style="height:600px;">
+      <div class="dot">
+			<center><b id="801" style="font-size:30px;">801</b></br>
+			溫度 : <input id="tem801" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			濕度 : <input id="hum801" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</center>
+		</div>
+		<div class="dot">
+			<center><b id="802" style="font-size:30px;">802</b></br>
+			溫度 : <input id="tem802" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			濕度 : <input id="hum802" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</center>
+		</div>
+		<div class="dot">
+			<center><b id="803" style="font-size:30px;">803</b></br>
+			溫度 : <input id="tem803" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			濕度 : <input id="hum803" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</center>
+		</div>
+		<div class="dot">
+			<center><b id="805" style="font-size:30px;">805</b></br>
+			溫度 : <input id="tem805" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			濕度 : <input id="hum805" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</center>
+		</div>
+		</div>
+		</div>
+		<!--9F-->
+    <div id="9F" class="tab-pane fade" style="text-align: right;">
+      	<div class="right_box" style="height:600px;">
+      <div class="dot">
+			<center><b id="901" style="font-size:30px;">901</b></br>
+			溫度 : <input id="tem901" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			濕度 : <input id="hum901" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</center>
+		</div>
+		<div class="dot">
+			<center><b id="902" style="font-size:30px;">902</b></br>
+			溫度 : <input id="tem902" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			濕度 : <input id="hum902" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</center>
+		</div>
+		<div class="dot">
+			<center><b id="903" style="font-size:30px;">903</b></br>
+			溫度 : <input id="tem903" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			濕度 : <input id="hum903" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</center>
+		</div>
+		<div class="dot">
+			<center><b id="905" style="font-size:30px;">905</b></br>
+			溫度 : <input id="tem905" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			濕度 : <input id="hum905" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</center>
+		</div>
+		</div>
+		</div>
+		<!--10F-->
+    <div id="10F" class="tab-pane fade" style="text-align: right;">
+      	<div class="right_box" style="height:600px;">
+      <div class="dot">
+			<center><b id="1001" style="font-size:30px;">1001</b></br>
+			溫度 : <input id="tem1001" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			濕度 : <input id="hum1001" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</center>
+		</div>
+		<div class="dot">
+			<center><b id="1002" style="font-size:30px;">1002</b></br>
+			溫度 : <input id="tem1002" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			濕度 : <input id="hum1002" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</center>
+		</div>
+		<div class="dot">
+			<center><b id="1003" style="font-size:30px;">1003</b></br>
+			溫度 : <input id="tem1003" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			濕度 : <input id="hum1003" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</center>
+		</div>
+		<div class="dot">
+			<center><b id="1005" style="font-size:30px;">1005</b></br>
+			溫度 : <input id="tem1005" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			濕度 : <input id="hum1005" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</center>
+		</div>
+		</div>
+		</div>
+		</div>
+    </div>
+  </div>
+</div>
+
+</body>
 </html>
