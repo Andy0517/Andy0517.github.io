@@ -1,4 +1,4 @@
-{
+*{
 	/*border: solid 2px red;*/
 	font-family: 微軟正黑體;
 	position: relative;
@@ -64,3 +64,59 @@ img{
 .dot{
   border-bottom:solid 2px #332e2e;
   margin: 0px;
+  width: 210px;
+}
+.left_box{
+  display: inline-block;
+  position: absolute;
+  top:0px;
+  left: 0px;
+
+  /*
+  border-bottom:solid 10px #7e3da0;
+  border-right:solid 5px #944aba;
+  border-left:solid 3px #c86ff7;
+  border-top:solid 2px #d587ff;*/
+}
+.right_box{
+  display: inline-block;
+  position: relative;
+  right: -250px;
+
+  overflow-x:hidden;
+  overflow-y:auto;
+background-color: #c6c2c2;
+  /*background-color: #c6c2c2;
+  border-bottom:solid 10px #332e2e;
+  border-right:solid 5px #333131;
+  border-left:solid 3px #565151;
+  border-top:solid 2px #565050; */
+}
+.button_list{
+  display: inline-block;
+  position: absolute;
+  right: 5px;
+  top:0px;
+  cursor: pointer;
+
+  width: 80px;
+  height: 50px;
+  font-size:20px
+
+  background-color: #c6c2c2;
+ border-bottom:solid 3px #c6c2c2;
+  border-right:solid 3px #c6c2c2;
+  border-left:solid 3px #c6c2c2;
+  border-top:solid 3px #c6c2c2;
+  border-radius: 15px ;
+}
+.button_list:focus {
+  outline: none;
+}
+.map{
+position: relative;
+  border-style:solid;
+  border-color: black;
+  text-align:center;
+
+}
