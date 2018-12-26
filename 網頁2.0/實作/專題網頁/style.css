@@ -1,4 +1,4 @@
-*{
+{
 	/*border: solid 2px red;*/
 	font-family: 微軟正黑體;
 	position: relative;
@@ -13,7 +13,7 @@ html,body{
 }
 body {
 	margin-top:0px;
-	background-color: #c7ccd6;
+	background-color: #F5F5DC;
 }
 ul{
 	margin-top:0px;
@@ -36,18 +36,18 @@ h2{
   	margin-right:10px;
 
   	/*border:solid  4px purple;*/
-  	border-bottom:solid 10px #636161;
+
     font-size: 35px;
 
   	cursor: pointer;
 }
 .button:hover{
-	border-bottom:solid 10px #c6c2c2;
+	border-bottom:solid 6px #FFFFFF;
 	-webkit-transition-duration: 1s;
 }
 .label{
 	margin:0px;
-	background-color: #c6c2c2;
+	/*background-color: #c6c2c2;*/
 	font-weight: 500;
 	letter-spacing: 3px;
 }
@@ -55,58 +55,12 @@ h2{
   overflow: hidden;
 }
 img{
-  width: 1200px;
-  height:450px;
-  border:10px solid mediumpurple;
+  /*width: 800px;
+  height:200px;*/
   border-radius: 10px;
+  display:block; 
+  margin:auto;
 }
 .dot{
   border-bottom:solid 2px #332e2e;
   margin: 0px;
-  width: 210px;
-}
-.left_box{
-  display: inline-block;
-  position: absolute;
-  top:0px;
-  left: 0px;
-
-  /*background-color: #c276e8;
-  border-bottom:solid 10px #7e3da0;
-  border-right:solid 5px #944aba;
-  border-left:solid 3px #c86ff7;
-  border-top:solid 2px #d587ff;*/
-}
-.right_box{
-  display: inline-block;
-  position: relative;
-  right: -250px;
-
-  overflow-x:hidden;
-  overflow-y:auto;
-
-  background-color: #c6c2c2;
-  border-bottom:solid 10px #332e2e;
-  border-right:solid 5px #333131;
-  border-left:solid 3px #565151;
-  border-top:solid 2px #565050;
-}
-.button_list{
-  display: inline-block;
-  position: absolute;
-  right: 5px;
-  top:0px;
-  cursor: pointer;
-
-  width: 60px;
-  height: 60px;
-  background-color: #c6c2c2;
-  border-bottom:solid 8px #332e2e;
-  border-right:solid 5px #333131;
-  border-left:solid 3px #565151;
-  border-top:solid 2px #565050;
-  border-radius: 15px;
-}
-.button_list:focus {
-  outline: none;
-}
