@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>智慧環境監測系統</title>
+  <title>智慧型環境監測系統</title>
   <meta charset="utf-8">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="./style.css">
@@ -30,8 +30,8 @@ $(document).ready(function(){
       }
     });
     var config = {
-    apiKey: "AIzaSyBeIR55eFK_d9rvd7MGvYF8qZUqfcYwo-U",
-    authDomain: "dht11-17f44.firebaseapp.com",
+    apiKey: "AIzaSyCZqAoXq1j29ndnN3cxQ6G87nmGUNPNsvg",
+    authDomain: "test-47418.firebaseapp.com",
     databaseURL: "https://dht11-17f44.firebaseio.com",
     projectId: "dht11-17f44",
     storageBucket: "dht11-17f44.appspot.com",
@@ -40,55 +40,88 @@ $(document).ready(function(){
 
   firebase.initializeApp(config);
   function get_data(number,kind){
-      var userRef = firebase.database().ref('/record/'+number);
+		var userRef = firebase.database().ref('/record/' + number);
+   
         userRef.on('value', function(snapshot) {
           $.each(snapshot.val(),function(k,v){
             if(kind=='tem'){
               $('#tem'+number).attr('value', v.tem);
+              if(v.tem>20){
+              		if(number=101){
+              	//	document.getElementById("lobby").style.backgroundColor = '#ff0000';
+              //		alert('警告! 大廳溫度過高\n 目前溫度:'+v.tem);
+              	}
+              }
+              //if(v.tem<30){
+              //	document.getElementById("lobby").style.backgroundColor = '#98fb98';
+             // }
                 }
                 if(kind=='hum'){
               $('#hum'+number).attr('value', v.hum);
+              	
+                 }
+                  if(kind=='CO'){
+              $('#CO'+number).attr('value', v.CO);
+            if(v.CO>0.01){
+            	if(number=101){
+            //	document.getElementById("lobby").style.backgroundColor = '#ff0000';
+            //		alert('警告! 一氧化碳濃度過高\n 目前濃度:'+v.CO);
+            	}
+            }
+
                 }
               })
+          
       });
     }
-    //B1
-    get_data('B_101','tem');
-    get_data('B_101','hum');
+
+       //B1
+  //  get_data('B_101','tem');
+   // get_data('B_101','hum');
+   // get_data('B_101','CO');
     //1f
     get_data('101','tem');
     get_data('101','hum');
+    get_data('101','CO');
      //2f
-    get_data('201','tem');
+/*    get_data('201','tem');
     get_data('201','hum');
+    get_data('201','CO');
      //3f
     get_data('301','tem');
     get_data('301','hum');
+    get_data('301','CO');
      //5f
     get_data('501','tem');
     get_data('501','hum');
+    get_data('501','CO');
      //6f
     get_data('601','tem');
     get_data('601','hum');
+    get_data('601','CO');
      //7f
     get_data('701','tem');
     get_data('701','hum');
+    get_data('701','CO');
      //8f
     get_data('801','tem');
     get_data('801','hum');
+    get_data('801','CO');
      //9f
     get_data('901','tem');
     get_data('901','hum');
+    get_data('901','CO');
      //10f
     get_data('1001','tem');
     get_data('1001','hum');
+    get_data('1001','CO'); */
    });
 </script>
 <body>
 
 <div class="container" style="overflow: hidden;">
-  <h1 class="title">智慧環境監測系統</h1>
-  <nav class="nav nav-tabs navbar-default">
+<img src="https://i.screenshot.net/4n9dbjn">
+  <nav class="nav nav-tabs navbar-default" style="border-radius: 15px;">
         <div class="container-fluid">
             	 <ul class="nav navbar-nav">
                 	<li class="button"><a data-toggle="tab" href="#B1">B1</a></li>
@@ -102,13 +135,13 @@ $(document).ready(function(){
 				    <li class="button"><a data-toggle="tab" href="#9F">9F</a></li>
 				    <li class="button"><a data-toggle="tab" href="#10F">10F</a></li>
                 </ul>
-                <button class="button_list" style="padding: 3px;">
-				<center>
-					<div style="background-color: white;width: 35px;height: 5px;margin: 5px;border-radius: 5px;cursor:pointer"></div>
-					<div style="background-color: white;width: 35px;height: 5px;margin: 5px;border-radius: 5px;cursor:pointer"></div>
-					<div style="background-color: white;width: 35px;height: 5px;margin: 5px;border-radius: 5px;cursor:pointer"></div>
-				</center>
-				</button>
+                <button class="button_list" style="padding: 0px;">
+		<center style="cursor:pointer;">
+			<div style="background-color: #636262;width: 35px;height: 5px;margin: 5px;border-radius: 5px;cursor:pointer"></div>
+			<div style="background-color: #636262;width: 35px;height: 5px;margin: 5px;border-radius: 5px;cursor:pointer"></div>
+			<div style="background-color: #636262;width: 35px;height: 5px;margin: 5px;border-radius: 5px;cursor:pointer"></div>
+		</center>
+		</button>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                
@@ -121,59 +154,111 @@ $(document).ready(function(){
       	<div class="right_box" style="height:600px;">
       <div class="dot">
 			<center><b id="B_101" style="font-size:30px;">B_101</b></br>
-			溫度 : <input id="tem_b01" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
-			濕度 : <input id="hum_b01" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			溫度 : <input id="temB_101" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			濕度 : <input id="humB_101" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</br>
+			一氧化碳 : <input id="COB_101" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			</center>
 		</div>
 		<div class="dot">
 			<center><b id="B_102" style="font-size:30px;">B_102</b></br>
 			溫度 : <input id="temB_102" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			濕度 : <input id="humB_102" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</br>
+			一氧化碳 : <input id="COB_102" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			</center>
 		</div>
 		<div class="dot">
 			<center><b id="B_103" style="font-size:30px;">B_103</b></br>
 			溫度 : <input id="temB_103" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			濕度 : <input id="humB_103" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</br>
+			一氧化碳 : <input id="COB_103" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			</center>
 		</div>
 		<div class="dot">
 			<center><b id="B_105" style="font-size:30px;">B_105</b></br>
 			溫度 : <input id="temB_105" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			濕度 : <input id="humB_105" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</br>
+			一氧化碳 : <input id="COB_105" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			</center>
 		</div>
 		</div>
 		</div>
 		<!--1F-->
     <div id="1F" class="tab-pane fade in active" style="text-align: right;">
-      <div class="right_box" style="height:600px;">
+      <div class="right_box" style="height:600px;float: right">
       <div class="dot">
-			<center><b id="101" style="font-size:30px;">101</b></br>
+			<center><b id="101" style="font-size:30px;">大廳</b></br>
 			溫度 : <input id="tem101" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			濕度 : <input id="hum101" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+		</br>
+			一氧化碳 : <input id="CO101" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			</center>
 		</div>
 		<div class="dot">
-			<center><b id="102" style="font-size:30px;">102</b></br>
+			<center><b id="102" style="font-size:30px;">外科候診區</b></br>
 			溫度 : <input id="tem102" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			濕度 : <input id="hum102" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</br>
+			一氧化碳 : <input id="CO102" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			</center>
 		</div>
 		<div class="dot">
-			<center><b id="103" style="font-size:30px;">103</b></br>
+			<center><b id="103" style="font-size:30px;">內科候診區</b></br>
 			溫度 : <input id="tem103" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			濕度 : <input id="hum103" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</br>
+			一氧化碳 : <input id="CO103" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			</center>
 		</div>
 		<div class="dot">
-			<center><b id="105" style="font-size:30px;">105</b></br>
+			<center><b id="105" style="font-size:30px;">暫留區</b></br>
 			溫度 : <input id="tem105" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			濕度 : <input id="hum105" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</br>
+			一氧化碳 : <input id="CO105" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</center>
+		</div>
+		<div class="dot">
+			<center><b id="106" style="font-size:30px;">急診區</b></br>
+			溫度 : <input id="tem106" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			濕度 : <input id="hum106" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</br>
+			一氧化碳 : <input id="CO106" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			</center>
 		</div>
 		</div>
-    </div>
+
+		</br>
+	      </br>
+	      </br>
+	      </br>
+			<div id="hold" class="map" style="width: 100px;height: 100px;margin-top: 50px;margin-left: 150px;line-height: 100px;background-color: #98fb98;">
+				暫留區
+ 	</div>
+ 	       <div id="er" class="map" style="width: 150px;height: 150px;line-height: 150px;top: -3px;margin-left: 100px;background-color: #98fb98;">
+ 	       	急診區
+ 	</div>
+ 	<div id="wait1" class="map" style="width: 110px;height: 200px;top: -260px;left: 247px;line-height: 200px;background-color: #98fb98;">
+           外科候診區 
+ 	</div>
+ 	<div id="lobby" class="map" style="width: 260px;height: 230px;top: -460px;left: 354px;line-height: 230px;background-color: #98fb98;">
+ 		大廳
+ 	</div>
+ 	<div id="entrance" class="map" style="width: 50px;height: 30px;top: -463px;left:354px;line-height: 30px;background-color: #98fb98;">
+          入口
+ 	</div>
+ 	<div id="counter" class="map" style="width: 100px;height: 30px;top: -747px;left: 514px;line-height: 30px;background-color: #98fb98;">
+ 		掛號櫃台
+ 	</div>
+ 		<div  id="wait2" class="map" style="width: 150px;height: 200px;top: -780px;left: 611px;line-height: 200px;background-color: #98fb98;">
+ 		內科候診區
+ 	</div>
+
+ 
+        </div>
     <!--2F-->
     <div id="2F" class="tab-pane fade" style="text-align: right;">
       	<div class="right_box" style="height:600px;">
@@ -181,24 +266,32 @@ $(document).ready(function(){
 			<center><b id="201" style="font-size:30px;">201</b></br>
 			溫度 : <input id="tem201" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			濕度 : <input id="hum201" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</br>
+			一氧化碳 : <input id="CO201" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			</center>
 		</div>
 		<div class="dot">
 			<center><b id="202" style="font-size:30px;">202</b></br>
 			溫度 : <input id="tem202" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			濕度 : <input id="hum202" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</br>
+			一氧化碳 : <input id="CO202" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			</center>
 		</div>
 		<div class="dot">
 			<center><b id="203" style="font-size:30px;">203</b></br>
 			溫度 : <input id="tem203" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			濕度 : <input id="hum203" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</br>
+			一氧化碳 : <input id="CO203" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			</center>
 		</div>
 		<div class="dot">
 			<center><b id="205" style="font-size:30px;">205</b></br>
 			溫度 : <input id="tem205" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			濕度 : <input id="hum205" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</br>
+			一氧化碳 : <input id="CO205" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			</center>
 		</div>
 		</div>
@@ -210,24 +303,32 @@ $(document).ready(function(){
 			<center><b id="301" style="font-size:30px;">301</b></br>
 			溫度 : <input id="tem301" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			濕度 : <input id="hum301" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</br>
+			一氧化碳 : <input id="CO301" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			</center>
 		</div>
 		<div class="dot">
 			<center><b id="302" style="font-size:30px;">302</b></br>
 			溫度 : <input id="tem302" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			濕度 : <input id="hum302" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</br>
+			一氧化碳 : <input id="CO302" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			</center>
 		</div>
 		<div class="dot">
 			<center><b id="303" style="font-size:30px;">303</b></br>
 			溫度 : <input id="tem303" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			濕度 : <input id="hum303" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</br>
+			一氧化碳 : <input id="CO303" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			</center>
 		</div>
 		<div class="dot">
 			<center><b id="305" style="font-size:30px;">305</b></br>
 			溫度 : <input id="tem305" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			濕度 : <input id="hum305" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</br>
+			一氧化碳 : <input id="CO305" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			</center>
 		</div>
 		</div>
@@ -239,24 +340,32 @@ $(document).ready(function(){
 			<center><b id="501" style="font-size:30px;">501</b></br>
 			溫度 : <input id="tem501" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			濕度 : <input id="hum501" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</br>
+			一氧化碳 : <input id="CO501" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			</center>
 		</div>
 		<div class="dot">
 			<center><b id="502" style="font-size:30px;">502</b></br>
 			溫度 : <input id="tem502" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			濕度 : <input id="hum502" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</br>
+			一氧化碳 : <input id="CO502" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			</center>
 		</div>
 		<div class="dot">
 			<center><b id="503" style="font-size:30px;">503</b></br>
 			溫度 : <input id="tem503" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			濕度 : <input id="hum503" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</br>
+			一氧化碳 : <input id="CO503" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			</center>
 		</div>
 		<div class="dot">
 			<center><b id="505" style="font-size:30px;">505</b></br>
 			溫度 : <input id="tem505" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			濕度 : <input id="hum505" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</br>
+			一氧化碳 : <input id="CO505" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			</center>
 		</div>
 		</div>
@@ -268,24 +377,32 @@ $(document).ready(function(){
 			<center><b id="601" style="font-size:30px;">601</b></br>
 			溫度 : <input id="tem601" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			濕度 : <input id="hum601" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</br>
+			一氧化碳 : <input id="CO601" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			</center>
 		</div>
 		<div class="dot">
 			<center><b id="602" style="font-size:30px;">602</b></br>
 			溫度 : <input id="tem602" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			濕度 : <input id="hum602" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</br>
+			一氧化碳 : <input id="CO602" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			</center>
 		</div>
 		<div class="dot">
 			<center><b id="603" style="font-size:30px;">603</b></br>
 			溫度 : <input id="tem603" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			濕度 : <input id="hum603" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</br>
+			一氧化碳 : <input id="CO603" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			</center>
 		</div>
 		<div class="dot">
 			<center><b id="605" style="font-size:30px;">605</b></br>
 			溫度 : <input id="tem605" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			濕度 : <input id="hum605" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</br>
+			一氧化碳 : <input id="CO605" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			</center>
 		</div>
 		</div>
@@ -297,24 +414,32 @@ $(document).ready(function(){
 			<center><b id="701" style="font-size:30px;">701</b></br>
 			溫度 : <input id="tem701" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			濕度 : <input id="hum701" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</br>
+			一氧化碳 : <input id="CO701" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			</center>
 		</div>
 		<div class="dot">
 			<center><b id="702" style="font-size:30px;">702</b></br>
 			溫度 : <input id="tem702" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			濕度 : <input id="hum702" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</br>
+			一氧化碳 : <input id="CO702" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			</center>
 		</div>
 		<div class="dot">
 			<center><b id="703" style="font-size:30px;">703</b></br>
 			溫度 : <input id="tem703" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			濕度 : <input id="hum703" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</br>
+			一氧化碳 : <input id="CO703" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			</center>
 		</div>
 		<div class="dot">
 			<center><b id="705" style="font-size:30px;">705</b></br>
 			溫度 : <input id="tem705" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			濕度 : <input id="hum705" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</br>
+			一氧化碳 : <input id="CO705" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			</center>
 		</div>
 		</div>
@@ -326,24 +451,32 @@ $(document).ready(function(){
 			<center><b id="801" style="font-size:30px;">801</b></br>
 			溫度 : <input id="tem801" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			濕度 : <input id="hum801" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</br>
+			一氧化碳 : <input id="CO801" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			</center>
 		</div>
 		<div class="dot">
 			<center><b id="802" style="font-size:30px;">802</b></br>
 			溫度 : <input id="tem802" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			濕度 : <input id="hum802" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</br>
+			一氧化碳 : <input id="CO802" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			</center>
 		</div>
 		<div class="dot">
 			<center><b id="803" style="font-size:30px;">803</b></br>
 			溫度 : <input id="tem803" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			濕度 : <input id="hum803" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</br>
+			一氧化碳 : <input id="CO803" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			</center>
 		</div>
 		<div class="dot">
 			<center><b id="805" style="font-size:30px;">805</b></br>
 			溫度 : <input id="tem805" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			濕度 : <input id="hum805" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</br>
+			一氧化碳 : <input id="CO805" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			</center>
 		</div>
 		</div>
@@ -355,24 +488,32 @@ $(document).ready(function(){
 			<center><b id="901" style="font-size:30px;">901</b></br>
 			溫度 : <input id="tem901" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			濕度 : <input id="hum901" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</br>
+			一氧化碳 : <input id="CO901" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			</center>
 		</div>
 		<div class="dot">
 			<center><b id="902" style="font-size:30px;">902</b></br>
 			溫度 : <input id="tem902" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			濕度 : <input id="hum902" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</br>
+			一氧化碳 : <input id="CO902" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			</center>
 		</div>
 		<div class="dot">
 			<center><b id="903" style="font-size:30px;">903</b></br>
 			溫度 : <input id="tem903" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			濕度 : <input id="hum903" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</br>
+			一氧化碳 : <input id="CO903" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			</center>
 		</div>
 		<div class="dot">
 			<center><b id="905" style="font-size:30px;">905</b></br>
 			溫度 : <input id="tem905" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			濕度 : <input id="hum905" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</br>
+			一氧化碳 : <input id="CO905" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			</center>
 		</div>
 		</div>
@@ -384,31 +525,42 @@ $(document).ready(function(){
 			<center><b id="1001" style="font-size:30px;">1001</b></br>
 			溫度 : <input id="tem1001" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			濕度 : <input id="hum1001" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</br>
+			一氧化碳 : <input id="CO801" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			</center>
 		</div>
 		<div class="dot">
 			<center><b id="1002" style="font-size:30px;">1002</b></br>
 			溫度 : <input id="tem1002" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			濕度 : <input id="hum1002" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</br>
+			一氧化碳 : <input id="CO1001" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			</center>
 		</div>
 		<div class="dot">
 			<center><b id="1003" style="font-size:30px;">1003</b></br>
 			溫度 : <input id="tem1003" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			濕度 : <input id="hum1003" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</br>
+			一氧化碳 : <input id="CO1003" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			</center>
 		</div>
 		<div class="dot">
 			<center><b id="1005" style="font-size:30px;">1005</b></br>
 			溫度 : <input id="tem1005" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			濕度 : <input id="hum1005" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
+			</br>
+			一氧化碳 : <input id="CO1005" value="偵測中..." style="width: 50px;margin-bottom: 5px;" disabled="disabled">
 			</center>
 		</div>
 		</div>
 		</div>
 		</div>
+	
     </div>
+  
   </div>
+
 </div>
 
 </body>
